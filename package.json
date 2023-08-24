@@ -1,5 +1,5 @@
 {
-  "name": "nuclear-neutron",
+  "name": "southjerseydeb",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.10.14"
+    "astro": "^2.10.14",
+    "jsdoc": "^4.0.2",
+    "sass": "^1.66.1"
   }
 }
