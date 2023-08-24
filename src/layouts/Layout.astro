@@ -12,3 +12,18 @@ import Head from './Head.astro';
         <slot />
     </body>
 </html>
+
+<style lang="scss" is:global>
+    @import '../styles/utility.scss';
+
+    body {
+        background-color: $color-white;
+        color: $color-black;
+        font-family: 'Albert Sans', Arial, Helvetica, sans-serif;
+        position: relative;
+
+        &.no-scroll {
+            overflow: hidden;
+        }
+    }
+</style>
