@@ -1,0 +1,406 @@
+/* Document
+ * ======================================================================== */
+
+:where(*, ::before, ::after) {
+    box-sizing: border-box;
+}
+
+:where(::before, ::after) {
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
+
+/* Structure
+ * ======================================================================== */
+
+:where(html) {
+    -moz-tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    font-family:
+        system-ui,
+        'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji';
+    line-height: 1.15;
+    tab-size: 4;
+}
+
+:where(body) {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+:where(main) {
+    display: block;
+}
+
+/* Typography
+ * ======================================================================== */
+
+:where(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+}
+
+:where(h1) {
+    font-size: 2em;
+}
+
+:where(p) {
+    margin: 0;
+}
+
+:where(strong, b) {
+    font-weight: bolder;
+}
+
+:where(small) {
+    font-size: 80%;
+}
+
+:where(abbr[title]) {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+:where(sub, sup) {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+:where(sub) {
+    bottom: -0.25em;
+}
+
+:where(sup) {
+    top: -0.5em;
+}
+
+:where(pre, code, kbd, samp, var) {
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Consolas,
+        'Liberation Mono',
+        Menlo,
+        monospace;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* Groupings
+ * ======================================================================== */
+
+:where(dl, ol, ul, li) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tables
+ * ======================================================================== */
+
+:where(table) {
+    border-collapse: collapse !important;
+    border-color: inherit;
+    border-spacing: 0 !important;
+    text-indent: 0;
+}
+
+:where(th, tr, td) {
+    margin: 0;
+    padding: 0;
+}
+
+:where(th) {
+    font-weight: inherit;
+}
+
+/* Breaks
+ * ======================================================================== */
+
+:where(hr) {
+    border-top: 1px solid black;
+    border-bottom: none;
+    box-sizing: content-box;
+    color: black;
+    height: 0;
+    overflow: visible;
+}
+
+/* Links
+ * ======================================================================== */
+
+:where(a, a:hover, a:visited, a:active) {
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Buttons
+ * ======================================================================== */
+
+:where(button) {
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 0;
+    text-transform: none;
+}
+
+:where(button,
+    [type='button'],
+    [type='reset'],
+    [type='submit']) {
+    -webkit-appearance: button;
+}
+
+:where(::-webkit-file-upload-button) {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+:where(::-moz-focus-inner) {
+    border-style: none;
+    padding: 0;
+}
+
+:where(:-moz-focusring) {
+    outline: 1px dotted ButtonText;
+}
+
+/* Inputs
+ * ======================================================================== */
+
+:where(input) {
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+}
+
+:where(:-webkit-input-placeholder) {
+    color: inherit;
+    opacity: .54;
+}
+
+:where([type='search']) {
+    -webkit-appearance: textfield;
+}
+
+:where(::-webkit-search-decoration) {
+    -webkit-appearance: none;
+}
+
+:where([type='checkbox'], [type='radio']) {
+    margin: 0;
+    padding: 0;
+}
+
+/* Selects
+ * ======================================================================== */
+
+:where(select, option, optgroup) {
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    text-transform: none;
+}
+
+/* Text Areas
+ * ======================================================================== */
+
+:where(textarea) {
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15em;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    resize: vertical;
+}
+
+/* Field Sets
+ * ======================================================================== */
+
+:where(fieldset) {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+:where(legend) {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+}
+
+/* Details
+ * ======================================================================== */
+
+:where(details) {
+    display: block;
+}
+
+:where(summary) {
+    display: list-item;
+}
+
+/* Progress
+ * ======================================================================== */
+
+:where(progress) {
+    vertical-align: baseline;
+}
+
+:where(::-webkit-inner-spin-button, ::-webkit-outer-spin-button) {
+    height: auto;
+}
+
+/* Images
+ * ======================================================================== */
+
+:where(img, svg) {
+    vertical-align: middle;
+}
+
+:where(img) {
+    border-style: none;
+    max-width: 100%;
+}
+
+:where(svg:not([fill])) {
+    fill: currentColor;
+}
+
+:where(svg:not(:root)) {
+    overflow: hidden;
+}
+
+:where(figure) {
+    margin: 0;
+}
+
+/* Embeds
+ * ======================================================================== */
+
+:where(audio, iframe, video) {
+    vertical-align: middle;
+}
+
+:where(audio, video) {
+    display: inline-block;
+}
+
+:where(audio:not([controls])) {
+    display: none;
+    height: 0;
+}
+
+:where(iframe) {
+    border-style: none;
+}
+
+/* Dialogs
+ * ======================================================================== */
+
+:where(dialog) {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    display: block;
+    height: -moz-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+    left: 0;
+    margin: auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+}
+
+:where(dialog:not([open])) {
+    display: none;
+}
+
+/* Focus States
+ * ======================================================================== */
+
+:where(*),
+:where(*:focus-visible) {
+    outline-offset: -2px;
+}
+
+:where(*) {
+    outline: 2px solid transparent;
+}
+
+:where(*:focus-visible) {
+    outline-color: black;
+}
+
+/* Cursors
+ * ======================================================================== */
+
+:where(html) {
+    cursor: default;
+}
+
+:where(button, [type='checkbox'], [type='radio'], [aria-controls]) {
+    cursor: pointer;
+}
+
+:where([aria-busy='true']) {
+    cursor: progress;
+}
+
+:where([aria-disabled='true'], [disabled]) {
+    cursor: not-allowed;
+}
+
+/* Misc.
+ * ======================================================================== */
+
+:where(canvas) {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+:where([hidden]) {
+    display: none;
+}
+
+:where(a, area, button, input, label, select, summary, textarea, [tabindex]) {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+:where(:-moz-ui-invalid) {
+    box-shadow: none;
+}
