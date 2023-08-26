@@ -22,11 +22,14 @@ const { text, href } = Astro.props;
     @import '../../styles/utility.scss';
 
     li {
+        @include focus();
         display: block;
         font-size: rempx(16px);
         letter-spacing: .025em;
         margin: rempx(7.5px);
+        outline: 2px solid transparent;
         text-align: center;
+        transition: .2s ease-in-out;
         white-space: nowrap;
         width: 100%;
 

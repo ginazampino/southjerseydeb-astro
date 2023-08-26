@@ -27,9 +27,11 @@ const { id, span, href } = Astro.props;
     }
 
     a {
+        @include focus();
         font-size: rempx(13.5px);
         letter-spacing: .045em;
         padding: rempx(10px);
+        transition: .2s ease-in-out;
 
         &:hover span:before {
             transform: scaleX(1);

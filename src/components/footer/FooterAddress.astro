@@ -34,6 +34,10 @@ const facebook = data.attributes.facebook;
 
     address {
         font-style: normal;
+
+        a {
+            @include focus();
+        }
         
         li + li {
             margin-top: rempx(4px);

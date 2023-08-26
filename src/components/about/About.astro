@@ -72,6 +72,10 @@ const buttonText = data.attributes.buttonText;
                 margin-right: rempx(40px);
             }
 
+            a {
+                @include focus();
+            }
+
             a, div {
                 width: 100%;
                 transition: .2s ease-in-out;

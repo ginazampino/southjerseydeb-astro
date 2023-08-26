@@ -1,3 +1,88 @@
 <section id="contact">
-    contact
+    <div class="container">
+        <h2>Contact</h2>
+        <form method="POST">
+            <label for="name">
+                <div>Your name:<span>*</span></div>
+                <input name="name" type="text" required />
+            </label>
+            <label for="email">
+                <div>Your email:<span>*</span></div>
+                <input name="email" type="email" required />
+            </label>
+            <label for="phone">
+                <div>Your phone number:</div>
+                <input name="phone" type="tel" />
+            </label>
+            <label for="message">
+                <div>Your message:<span>*</span></div>
+                <textarea name="message" required />
+            </label>
+            <button type="submit">
+                Send message
+            </button>
+        </form>
+    </div>
 </section>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    section#contact {
+        div.container,
+        form {
+            @include flex(center, center, column);
+            max-width: 100%;
+            width: rempx(500px);
+        }
+
+        form {
+            letter-spacing: .025em;
+            margin-top: rempx(10px);
+            
+            label, 
+            input,
+            textarea {
+                width: 100%;
+            }
+
+            input,
+            textarea {
+                border: 4px solid transparent;
+                margin-bottom: rempx(25px);
+                outline: none;
+                padding: rempx(10px);
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    border-color: rgba($color-accent, .5);
+                }
+
+                &:active, &:focus-visible {
+                    border-color: rgba($color-accent, 1);
+                }
+            }
+
+            textarea { // Message
+                min-height: rempx(150px);
+            }
+
+            button { // Submit
+                @include focus();
+                background-color: $color-accent;
+                margin-top: rempx(5px);
+                padding: rempx(10px) rempx(40px);
+                transition: .2s ease-in-out;
+                width: 100%;
+                
+                &:hover {
+                    background-color: $color-accent-dk;
+                }
+
+                @media (min-width: $screen-sm) {
+                    width: auto;
+                }
+            }
+        }
+    }
+</style>

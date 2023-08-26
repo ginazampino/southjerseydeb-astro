@@ -3,14 +3,6 @@
     @return calc($size / 16px) * 1rem;
 }
 
-// Mixins:
-@mixin flex($align-items, $justify-content, $flex-direction) {
-    align-items: $align-items;
-    display: flex;
-    flex-direction: $flex-direction;
-    justify-content: $justify-content;
-}
-
 // Resolutions:
 $screen-xxsm: rempx(0px);
 $screen-xsm: rempx(300px);
@@ -38,3 +30,18 @@ $color-sale-dk: $color-accent-xdk;
 // Colors (Sold):
 $color-sold: #9ad782;
 $color-sold-dk: #5e9f44;
+
+// Mixins:
+@mixin flex($align-items, $justify-content, $flex-direction) {
+    align-items: $align-items;
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+}
+
+@mixin focus() {
+    &:focus, &:focus-visible, &:focus-within {
+        outline: rempx(2px) solid $color-black;
+        outline-offset: rempx(0px);
+    }
+}
