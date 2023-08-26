@@ -45,6 +45,10 @@ import Legal from './FooterLegal.astro';
             }
         }
 
+        div.container {
+            @include flex(center, center, column);
+        }
+
         .grid {
             display: grid;
             grid-template-rows: auto auto auto;
@@ -52,6 +56,22 @@ import Legal from './FooterLegal.astro';
             @media (min-width: $screen-md) {
                 grid-template-rows: inherit;
                 grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            > div + div,
+            > div + address {
+                border-top: 1px solid rgba($color-accent-xdk, .65);
+                margin-top: rempx(20px);
+                padding-top: rempx(20px);
+
+                @media (min-width: $screen-md) {
+                    border-left: 1px solid rgba($color-accent-xdk, .65);
+                    border-top: none;
+                    margin-left: rempx(30px);
+                    margin-top: 0px;
+                    padding-left: rempx(30px);
+                    padding-top: 0px;
+                }
             }
         }
     }

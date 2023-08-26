@@ -28,6 +28,7 @@
         padding-top: rempx(20px);
         margin-top: rempx(20px);
         transition: .2s ease-in-out;
+        width: 100%;
 
         @media (min-width: $screen-md) {
             align-items: center;
@@ -37,11 +38,17 @@
         }
 
         div:first-child {
-            margin-bottom: rempx(8px);
+            border-bottom: 1px solid rgba($color-accent-xdk, .65);
+            margin-bottom: rempx(20px);
+            padding-bottom: rempx(20px);
             transition: .2s ease-in-out;
+            width: 100%;
             
             @media (min-width: $screen-md) {
-                margin-bottom: inherit;
+                border-bottom: none;
+                margin-bottom: auto;
+                padding-bottom: 0px;
+                width: auto;
             }
         }
 

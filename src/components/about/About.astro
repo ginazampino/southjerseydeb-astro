@@ -62,16 +62,6 @@ const buttonText = data.attributes.buttonText;
             }
         }
 
-        .container {
-            @include flex(center, center, column);
-            margin: 0 auto;
-            max-width: rempx(1100px);
-
-            @media (min-width: $screen-md) {
-                flex-direction: row;
-            }
-        }
-
         .link-container {
             @include flex(center, center, row);
             margin-top: rempx(20px);

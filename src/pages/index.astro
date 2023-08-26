@@ -58,10 +58,6 @@ const listingsAmount = data.length;
 			}
 		}
 
-		div.container {
-			margin: 0 auto;
-		}
-
 		h2 {
 			font-size: rempx(35px);
 			font-weight: 200;
@@ -99,6 +95,16 @@ const listingsAmount = data.length;
 			section#testimonials {
 				background-color: $color-gray;
 			}
+		}
+	}
+
+	section > div.container {
+		@include flex(center, center, column);
+		margin: 0 auto;
+		max-width: rempx(1100px);
+
+		@media (min-width: $screen-md) {
+			flex-direction: row;
 		}
 	}
 </style>
