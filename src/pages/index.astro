@@ -81,6 +81,8 @@ const listingsAmount = data.length;
 
 		section#listings, section#contact {
 			background-color: $color-gray;
+			outline: rempx(4px) solid $color-white;
+        	outline-offset: rempx(-20px);
 		}
 
 		&.alt { // Applied if CMS contains no published listings.
@@ -90,10 +92,13 @@ const listingsAmount = data.length;
 
 			section#contact {
 				background-color: $color-white;
+				outline: none;
 			}
 
 			section#testimonials {
 				background-color: $color-gray;
+				outline: rempx(4px) solid $color-white;
+        		outline-offset: rempx(-20px);
 			}
 		}
 	}
