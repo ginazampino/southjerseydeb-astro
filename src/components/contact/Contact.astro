@@ -29,6 +29,10 @@
     @import '../../styles/utility.scss';
 
     section#contact {
+        h2 {
+            margin-bottom: rempx(30px);
+        }
+        
         div.container,
         form {
             @include flex(center, center, column);
@@ -38,7 +42,6 @@
 
         form {
             letter-spacing: .025em;
-            margin-top: rempx(10px);
             
             label, 
             input,
@@ -48,6 +51,7 @@
 
             input,
             textarea {
+                background-color: #fff;
                 border: rempx(4px) solid transparent;
                 margin-bottom: rempx(25px);
                 margin-top: rempx(5px);

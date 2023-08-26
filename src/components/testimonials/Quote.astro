@@ -1,0 +1,41 @@
+---
+
+// Astro props:
+interface Props {
+    text: string,
+    author: string,
+    relationship: string
+}
+
+const { text, author, relationship } = Astro.props;
+
+---
+
+<li>
+    <p>
+        {text}
+        <span>{author}, {relationship}</span>
+    </p>
+</li>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    p {
+        @include flex(center, center, column);
+        font-size: rempx(20px);
+        font-weight: 300;
+        line-height: rempx(24px);
+        text-align: center;
+
+        span {
+            background-color: rgba($color-accent, .25);
+            color: $color-accent-xxdk;
+            display: inline-block;
+            font-size: rempx(18px);
+            font-style: italic;
+            margin-top: rempx(20px);
+            padding: rempx(2px) rempx(12px);
+        }
+    }
+</style>
