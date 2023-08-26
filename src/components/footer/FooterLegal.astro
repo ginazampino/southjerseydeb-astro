@@ -1,0 +1,65 @@
+<div id="footerLegal">
+    <div>
+        <span class="legal">
+            Copyright &copy; <span class="current-year"></span> Deb Leiter 
+        </span>
+        <span class="pipe">|</span>
+        <span class="legal">
+            All rights reserved.
+        </span>
+    </div>
+    <div>
+        Website by <a href="https://ginazampino.com" target="_blank" rel="noopener noreferrer">Gina Zampino</a>
+    </div>
+</div>
+
+<script>
+    import { assignYear } from '../../scripts/assignYear';
+
+    assignYear('.current-year');
+</script>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div#footerLegal {
+        @include flex(flex-start, space-between, column);
+        border-top: 1px solid rgba($color-accent-xdk, .65);
+        padding-top: rempx(20px);
+        margin-top: rempx(20px);
+        transition: .2s ease-in-out;
+
+        @media (min-width: $screen-md) {
+            align-items: center;
+            flex-direction: row;
+            margin-top: rempx(30px);
+            padding-top: rempx(30px);
+        }
+
+        div:first-child {
+            margin-bottom: rempx(8px);
+            transition: .2s ease-in-out;
+            
+            @media (min-width: $screen-md) {
+                margin-bottom: inherit;
+            }
+        }
+
+        div > span {
+            display: block;
+
+            @media (min-width: $screen-sm) {
+                display: inline-block;
+            }
+        }
+
+        .pipe {
+            color: rgba($color-accent-xdk, .8);
+            display: none;
+
+            @media (min-width: $screen-sm) {
+                display: inline-block;
+            }
+        }
+    }
+</style>

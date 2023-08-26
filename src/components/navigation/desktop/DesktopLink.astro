@@ -1,0 +1,56 @@
+---
+
+// Astro props:
+interface Props {
+    id: string,
+    span: string,
+    href: string
+}
+
+const { id, span, href } = Astro.props;
+
+---
+
+<li id=`${id}`>
+    <a href={href}>
+        <span>
+            {span}
+        </span>
+    </a>
+</li>
+
+<style lang="scss">
+    @import '../../../styles/utility.scss';
+
+    li.hidden {
+        display: none;
+    }
+
+    a {
+        font-size: rempx(13.5px);
+        letter-spacing: .045em;
+        padding: rempx(10px);
+
+        &:hover span:before {
+            transform: scaleX(1);
+        }
+
+        span {
+            position: relative;
+            text-transform: uppercase;
+
+            &:before {
+                background-color: $color-accent;
+                bottom: rempx(-5px);
+                content: "";
+                display: block;
+                height: rempx(4px);
+                left: 0;
+                position: absolute;
+                transform: scaleX(0);
+                transition: 0.2s ease-in-out;
+                width: 100%;
+            }
+        }
+    }
+</style>

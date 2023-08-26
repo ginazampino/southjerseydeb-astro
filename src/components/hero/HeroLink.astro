@@ -1,0 +1,52 @@
+---
+
+// Astro props:
+interface Props {
+    text: string,
+    href: string
+}
+
+const { text, href } = Astro.props;
+
+---
+
+<li>
+    <a href=`${href}`>
+        <div>
+            {text}
+        </div>
+    </a>
+</li>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    li {
+        display: block;
+        font-size: rempx(16px);
+        letter-spacing: .025em;
+        margin: rempx(7.5px);
+        text-align: center;
+        white-space: nowrap;
+        width: 100%;
+
+        @media (min-width: $screen-md) {
+            margin: rempx(10px);
+            width: rempx(220px);
+        }
+
+        &:hover div {
+            background-color: $color-accent-dk;
+        }
+
+        div {
+            background-color: $color-accent;
+            padding: rempx(10px) rempx(12px);
+            transition: .2s ease-in-out;
+
+            @media (min-width: $screen-md) {
+                padding: rempx(12px) rempx(22px);
+            }
+        }
+    }
+</style>

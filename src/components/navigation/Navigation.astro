@@ -1,0 +1,46 @@
+---
+
+// Component imports:
+import Logo from './Logo.astro';
+import Mobile from './mobile/MobileNav.astro';
+import Desktop from './desktop/DesktopNav.astro';
+
+// Script imports:
+import { fetchData } from '../../scripts/fetchData';
+
+// API data:
+const listingsData = await fetchData('listings');
+const listingsAmount = listingsData.length;
+
+---
+
+<header data-listings=`${listingsAmount}`>
+    <Logo />
+    <Mobile />
+    <Desktop />
+</header>
+
+<script>
+     import { toggleNavListings } from '../../scripts/toggleNavListings';
+     
+     toggleNavListings('#mobileListings');
+     toggleNavListings('#desktopListings');
+</script>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    header {
+        @include flex(center, space-between, row);
+        background-color: $color-white;
+        box-shadow: 0px 0px 9px 3px rgba(41,41,41,.075);
+        padding: rempx(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+
+        @media (min-width: $screen-xsm) {
+            padding: rempx(20px);
+        }
+    }
+</style>

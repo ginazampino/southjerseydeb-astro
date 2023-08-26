@@ -1,0 +1,42 @@
+<div>
+    <h3>County coverage</h3>
+    <div class="list-container">
+        <ul>
+            <li>Atlantic County</li>
+            <li>Burlington County</li>
+            <li>Camden County</li>
+            <li>Cape May County</li>
+        </ul>
+        <ul>
+            <li>Cumberland County</li>
+            <li>Gloucester County</li>
+            <li>Salem County</li>
+        </ul>
+    </div>
+</div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    .list-container {
+        @include flex(flex-start, flex-start, column);
+
+        @media (min-width: $screen-xl) {
+            flex-direction: row;
+        }
+
+        ul + ul {
+            transition: .2s ease-in-out;
+
+            @media (min-width: $screen-xl) {
+                margin-left: rempx(20px);
+                margin-top: 0;
+                transition: .2s ease-in-out;
+            }
+        }
+
+        li {
+            line-height: rempx(20px);
+        }
+    }
+</style>
