@@ -32,26 +32,73 @@ const data = await fetchData('testimonials');
     </div>
 </section>
 
-<style lang="scss">
+<script>
+    import { fadeQuotes } from '../../scripts/fadeQuotes';
+
+    const quotes = document.querySelectorAll('.quote');
+
+    if (quotes.length > 1) {
+        fadeQuotes('.quote');
+    } else {
+        const container = document.querySelector('#testimonials .container');
+        container.classList.add('one-child');
+        quotes[0].classList.add('only-child');
+    };
+</script>
+
+<style lang="scss" is:global>
     @import '../../styles/utility.scss';
 
     section#testimonials {
         position: relative;
         z-index: -1;
-    }
 
-    section#testimonials .container {
-        @include flex(center, center, column);
+        .container {
+            @include flex(center, center, column);
 
-        h2 {
-            margin-bottom: rempx(30px);
+            h2 {
+                margin-bottom: rempx(10px);
+            }
         }
 
         .quote-container {
+            @include flex(center, center, column);
             max-width: 100%;
             padding: repmx(0px) rempx(20px);
             position: relative;
             width: rempx(600px);
+
+            ul {
+                @include flex(center, center, column);
+                flex-grow: 1;
+                height: rempx(160px);
+                position: relative;
+                width: 100%;
+            }
+        }
+
+        .container.one-child {
+            h2 {
+                margin-bottom: rempx(30px);
+            }
+
+            ul {
+                height: 100%;
+            }
+
+            i.fa-quote-left,
+            i.fa-quote-right {
+                display: none;
+                top: rempx(-20px);
+
+                @media (min-width: $screen-sm) {
+                    display: block;
+                }
+
+                @media (min-width: $screen-md) {
+                    top: rempx(-20px);
+                }
+            }
         }
 
         i {
@@ -59,37 +106,44 @@ const data = await fetchData('testimonials');
             font-size: rempx(60px);
             position: absolute;
             z-index: -1;
+            top: rempx(20px);
 
             @media (min-width: $screen-md) {
                 color: rgba($color-accent, 1);
-                z-index: -1;
             }
 
+            
             &.fa-quote-left,
             &.fa-quote-right {
                 display: none;
-                top: rempx(-80px);
 
                 @media (min-width: $screen-sm) {
-                    display: block;
+                    display: block
                 }
             }
 
+
             &.fa-quote-left {
-                left: rempx(-20px);
+                left: rempx(-10px);
+                
+                @media (min-width: $screen-sm) {
+                    left: rempx(-20px);
+                }
 
                 @media (min-width: $screen-md) {
                     left: rempx(-80px);
-                    top: rempx(-20px);
                 }
             }
 
             &.fa-quote-right {
-                right: rempx(-20px);
+                right: rempx(-10px);
+
+                @media (min-width: $screen-sm) {
+                    right: rempx(-20px);
+                }
 
                 @media (min-width: $screen-md) {
                     right: rempx(-80px);
-                    top: rempx(-20px);
                 }
             }
         }

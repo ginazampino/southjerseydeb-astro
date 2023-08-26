@@ -91,42 +91,40 @@ const listingsAmount = data.length;
 			}
 
 			section#contact {
-				background-color: $color-white;
 				outline: none;
-
-				input,
-				textarea {
-					box-shadow: 0px 0px 9px 3px rgba(41,41,41,.035);
-				}
 			}
 
 			section#testimonials {
 				background-color: $color-gray;
 				outline: rempx(4px) solid $color-white;
         		outline-offset: rempx(-20px);
-
+				
 				i {
 					color: rgba($color-black, .075);
-					
-					&:first-child,
-					&:last-child {
-						top: rempx(-80px);
 
-						@media (min-width: $screen-md) {
-							top: rempx(-20px);
-						}
+					&.fa-quote-left,
+					&.fa-quote-right {
+						top: rempx(20px);
 					}
-					
-					&:first-child {
-						left: rempx(10px);
+
+					&.fa-quote-left {
+						left: rempx(-10px);
+						
+						@media (min-width: $screen-sm) {
+							left: rempx(-20px);
+						}
 
 						@media (min-width: $screen-md) {
 							left: rempx(-80px);
 						}
 					}
 
-					&:last-child {
-						right: rempx(10px);
+					&.fa-quote-right {
+						right: rempx(-10px);
+
+						@media (min-width: $screen-sm) {
+							right: rempx(-20px);
+						}
 
 						@media (min-width: $screen-md) {
 							right: rempx(-80px);
