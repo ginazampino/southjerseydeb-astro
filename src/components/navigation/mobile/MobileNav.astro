@@ -36,6 +36,7 @@ import Link from './MobileLink.astro';
         nav {
             @include flex(center, center, column);
             background-color: $color-white;
+            visibility: hidden;
             height: 100vh;
             left: 0;
             opacity: 0;
@@ -50,6 +51,7 @@ import Link from './MobileLink.astro';
             z-index: 999;
 
             &.active {
+                visibility: visible;
                 opacity: 1;
                 pointer-events: all; // Enable <body> scrolling and other events
             }
