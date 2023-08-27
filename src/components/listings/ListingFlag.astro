@@ -1,0 +1,55 @@
+---
+
+// Astro props:
+interface Props {
+    sold: boolean,
+    flagLabel: string
+}
+
+const { sold, flagLabel } = Astro.props;
+
+---
+
+<div class=`${sold}`>
+    <i class="fa-sharp fa-solid fa-sign-hanging"></i>
+    <span>{flagLabel}</span>
+</div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div {
+        @include flex(center, center, row);
+        box-shadow: 0px 0px 9px 3px rgba(41,41,41,.075);
+        font-size: rempx(13px);
+        font-weight: 500;
+        letter-spacing: .025em;
+        line-height: rempx(13px);
+        padding: rempx(6px) rempx(12px);
+        position: absolute;
+        right: 0;
+        text-transform: uppercase;
+        top: 0;
+        z-index: 9;
+
+        &.false {
+            background-color: $color-sale;
+            
+            i {
+                color: $color-sale-dk;
+            }
+        }
+
+        &.true {
+            background-color: $color-sold;
+
+            i {
+                color: $color-sold-dk;
+            }
+        }
+
+        i {
+            margin-right: rempx(6px);
+        }
+    }
+</style>

@@ -1,6 +1,5 @@
 export function fadeQuotes(selector) {
     const list = Array.from(document.querySelectorAll(selector));
-    console.log(list);
     const delay = 5000;
 
     const fadeBehavior = () => {

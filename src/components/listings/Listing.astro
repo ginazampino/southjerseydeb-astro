@@ -1,0 +1,155 @@
+---
+
+// Component imports:
+import Image from './ListingImage.astro';
+import Flag from './ListingFlag.astro';
+import Address from './ListingAddress.astro';
+import Features from './ListingFeatures.astro';
+import Price from './ListingPrice.astro';
+import Link from './ListingLink.astro';
+
+// Astro props:
+interface Props {
+    image: string,
+    imageAlt: string,
+    addressLine1: string,
+    addressLine2: string,
+    listingPrice: number,
+    bedrooms: number,
+    bathrooms: number,
+    sqft: number,
+    sold: boolean,
+    externalLink: string
+}
+
+const { 
+    image, 
+    imageAlt,
+    addressLine1,
+    addressLine2,
+    listingPrice,
+    bedrooms,
+    bathrooms,
+    sqft,
+    sold,
+    externalLink } = Astro.props;
+
+// Functions:
+const usdConversion = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+});
+
+const priceUSD = usdConversion.format(listingPrice);
+const flagLabel = sold ? 'Sold' : 'For Sale';
+
+---
+
+<li class="listing">
+    <Image image={image} imageAlt={imageAlt} />
+    <Flag sold={sold} flagLabel={flagLabel}/>
+    <div class="listing-details">
+        <Address addressLine1={addressLine1} addressLine2={addressLine2} />
+        <Features beds={bedrooms} baths={bathrooms} sqft={sqft} />
+        <Price price={priceUSD} />
+        <ul class="listing-links">
+            <li>
+                <a href='#contact'>Inquire now</a>
+            </li>
+            <Link url={externalLink} label="View home" />
+        </ul>
+    </div>
+</li>
+
+<style lang="scss" is:global>
+    @import '../../styles/utility.scss';
+
+    .listing {
+        margin: rempx(10px);
+        max-width: 100%;
+        position: relative;
+
+        @media (min-width: $screen-md) {
+            margin: 0;
+        }
+
+        + .listing {
+            @media (min-width: $screen-md) {
+                margin: 0 0 0 rempx(20px);
+            }
+        }
+
+        .listing-details {
+            background-color: $color-white;
+            bottom: rempx(0px);
+            box-shadow: 0px 0px 9px 3px rgba(41,41,41,.075);
+            margin: 0 auto;
+            padding: rempx(15px);
+            position: relative;
+            width: rempx(320px);
+            max-width: 100%;
+
+            @media (min-width: $screen-sm) {
+                bottom: rempx(35px);
+                width: rempx(280px);
+            }
+        }
+
+        .listing-links {
+            @include flex(center, center, column);
+            margin-top: rempx(14px);
+
+            @media (min-width: $screen-sm) {
+                flex-direction: row;
+            }
+            
+            a {
+                display: block;
+                padding: rempx(4px) rempx(10px);
+                transition: .2s ease-in-out;
+                width: 100%;
+            }
+
+            li {
+                font-size: rempx(14px);
+                letter-spacing: .015em;
+                text-align: center;
+                transition: .2s ease-in-out;
+                width: 100%;
+            }
+
+            li + li {
+                margin-top: rempx(10px);
+
+                @media (min-width: $screen-sm) {
+                    margin-left: rempx(10px);
+                    margin-top: 0px;
+                }
+            }
+
+            li:last-child {
+                background-color: rgba($color-black, .075);
+
+                &:hover {
+                    background-color: rgba($color-black, .15);
+                }
+            }
+
+            li:first-child {
+                background-color: $color-accent;
+
+                &:hover {
+                    background-color: $color-accent-dk;
+                }
+            }
+
+            i {
+                color: rgba($color-black, .9);
+                font-size: rempx(10px);
+                margin-left: rempx(8px);
+            }
+        }
+    }
+</style>

@@ -1,0 +1,30 @@
+---
+
+// Astro props:
+interface Props {
+    image: string,
+    imageAlt: string
+}
+
+const { image, imageAlt } = Astro.props;
+
+---
+
+<div 
+    style=`background-image: url(https://strapi-8dip.onrender.com${image})`
+    title=`${imageAlt}`
+></div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div {
+        background-size: cover;
+        background-position: 50%;
+        height: rempx(215px);
+        max-width: 100%;
+        outline: rempx(4px) solid $color-gray;
+        outline-offset: rempx(-8px);
+        width: rempx(320px);
+    }
+</style>

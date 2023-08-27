@@ -1,5 +1,59 @@
+---
+
+// Component imports:
+import Listing from './Listing.astro';
+
+// Script imports:
+import { fetchData } from '../../scripts/fetchData';
+
+// API data:
+const data = await fetchData('listings');
+
+---
+
 <section id="listings">
     <div class="container">
         <h2>Featured listings</h2>
+        <div class="listings-container">
+            <ul>
+                {
+                    data.map((listing) => (
+                        <Listing 
+                            image={listing.attributes.image.data.attributes.url}
+                            imageAlt={listing.attributes.image.data.attributes.alternativeText}
+                            addressLine1={listing.attributes.addressLine1}
+                            addressLine2={listing.attributes.addressLine2}
+                            listingPrice={listing.attributes.listingPrice}
+                            bedrooms={listing.attributes.bedrooms}
+                            bathrooms={listing.attributes.bathrooms}
+                            sqft={listing.attributes.sqft}
+                            sold={listing.attributes.sold}
+                            link={listing.attributes.externalLink}
+                        />
+                    ))
+                }
+            </ul>
+        </div>
     </div>
 </section>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    section#listings {
+        .container {
+            @include flex(center, center, column);
+            width: 100%;
+        }
+
+        .listings-container {
+            width: 100%;
+
+            > ul {
+                @include flex(flex-start, center, row);
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+    }
+</style>

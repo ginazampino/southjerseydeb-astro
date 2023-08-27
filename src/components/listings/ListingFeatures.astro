@@ -1,0 +1,58 @@
+---
+
+// Astro props:
+interface Props {
+    beds: number,
+    baths: number,
+    sqft: number
+}
+
+const { beds, baths, sqft } = Astro.props;
+
+---
+
+<div>
+    <span>Property features</span>
+    <ul>
+        <li>
+            {beds} beds,
+        </li>
+        <li>
+            {baths} baths,
+        </li>
+        <li>
+            {sqft} sqft
+        </li>
+    </ul>
+</div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div {
+        margin-bottom: rempx(10px);
+
+        span {
+            color: $color-accent-xdk;
+            font-size: rempx(11px);
+            letter-spacing: .05em;
+            margin-bottom: rempx(2.5px);
+            text-transform: uppercase;
+        }
+
+        ul {
+            @include flex(flex-start, flex-start, column);
+
+            @media (min-width: $screen-xsm) {
+                align-items: center;
+                flex-direction: row;
+            }
+
+            li + li {
+                @media (min-width: $screen-xsm) {
+                    margin-left: rempx(5px);
+                }
+            }
+        }
+    }
+</style>
