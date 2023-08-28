@@ -2,9 +2,9 @@
  * Fetches data from the specified Strapi API endpoint.
  * 
  * @async
- * @param {string} endpoint The API endpoint from which to fetch data.
- * @returns {Promise<any>} The data fetched from the API.
- * @throws {Error} Thrown if an error occurs during the fetching process.
+ * @param {string} endpoint - The API endpoint from which to fetch data.
+ * @returns {Promise<any>} - The data fetched from the API.
+ * @throws {Error} - Thrown if an error occurs during the fetching process.
  */
 export async function fetchData(endpoint) {
     /**
