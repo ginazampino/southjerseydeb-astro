@@ -5,7 +5,7 @@ export function scrollToOffset(tag) {
         const mediaQuery = window.matchMedia('(min-width: 768px)');
 
         if (mediaQuery.matches) {
-            return -100;
+            return -99;
         } else {
             return -90;
         };
