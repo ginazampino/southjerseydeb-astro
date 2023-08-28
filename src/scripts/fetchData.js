@@ -11,7 +11,7 @@ export async function fetchData(endpoint) {
      * The base URL of the API.
      * @type {string}
      */
-    const apiUrl = `https://https://southjerseydeb-strapi.onrender.com//api/${endpoint}?populate=*`;
+    const apiUrl = `https://https://southjerseydeb-strapi.onrender.com/api/${endpoint}?populate=*`;
 
     try {
         /**
