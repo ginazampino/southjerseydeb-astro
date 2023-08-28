@@ -15,6 +15,11 @@ const { id, value, icon } = Astro.props;
     <i class=`fa-sharp fa-light ${icon}`></i>
 </button>
 
+<script>
+    import { toggleMobileNav } from "../../../scripts/toggleMobileNav";
+    toggleMobileNav('.toggle-nav');
+</script>
+
 <style lang="scss">
     @import '../../../styles/utility.scss';
 

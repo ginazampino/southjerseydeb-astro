@@ -28,9 +28,7 @@ export function toggleMobileNav(tag) {
      * @param {Event} event - The click event object.
      */
     [...toggleElements].forEach((element) => {
-        element.addEventListener('click', (event) => {
-            event.preventDefault();
-
+        element.addEventListener('click', () => {
             /**
              * Toggles the "no-scroll" class on the body element.
              */
