@@ -1,20 +1,17 @@
-/**
- * Adds smooth scrolling behavior to links that point to target elements on the page.
- * 
- * @param {string} tag - A CSS selector targeting links that should trigger smooth scrolling.
- * @return {void}
- */
-export function scrollFrom(tag) {
-    /**
-     * @type {NodeListOf<HTMLAnchorElement>}
-     */
+export function scrollToOffset(tag) {
     const links = document.querySelectorAll(`${tag}`);
+    
+    function calculateOffset() {
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+        if (mediaQuery.matches) {
+            return -100;
+        } else {
+            return -90;
+        };
+    };
 
     [...links].forEach((link) => {
-        /**
-         * @param {Event} event - The click event object.
-         * @returns {void} Initiate scrolling behavior.
-         */
         link.addEventListener('click', (event) => {
             event.preventDefault();
 
@@ -22,7 +19,7 @@ export function scrollFrom(tag) {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                const offset = -100;
+                const offset = calculateOffset();
 
                 window.scrollTo({
                     top: targetElement.offsetTop + offset,

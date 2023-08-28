@@ -22,6 +22,9 @@ import Link from './MobileLink.astro';
 <script>
     import { toggleMobileNav } from "../../../scripts/toggleMobileNav";
     toggleMobileNav('.toggle-nav');
+
+    import { scrollToOffset } from '../../../scripts/scrollToOffset';
+    scrollToOffset('#mobileNav a');
 </script>
 
 <style lang="scss">

@@ -22,6 +22,7 @@ const listingsAmount = data.length;
 ---
 
 <Layout>
+	<div id="top"></div>
 	<Navigation />
 	<main data-listings=`${listingsAmount}`>
 		<Hero />
@@ -35,7 +36,7 @@ const listingsAmount = data.length;
 
 <script>
 	import { recolorSections } from '../scripts/recolorSections';
-
+	
 	recolorSections();
 </script>
 

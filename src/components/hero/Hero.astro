@@ -39,10 +39,11 @@ const boldText = data.attributes.boldText;
 
 <script>
     import { formatHeroTitle } from '../../scripts/formatHeroTitle';
-
     const searchTerm = document.querySelector('.title').getAttribute('data-search');
-
     formatHeroTitle('.title span', searchTerm);
+
+    import { scrollToOffset } from '../../scripts/scrollToOffset';
+    scrollToOffset('#hero a');
 </script>
 
 <style lang="scss">
