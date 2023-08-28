@@ -1,6 +1,7 @@
 /**
  * Adds smooth scrolling behavior to links that point to target elements on the page.
- * @param {string} tag A CSS selector targeting links that should trigger smooth scrolling
+ * 
+ * @param {string} tag - A CSS selector targeting links that should trigger smooth scrolling.
  * @return {void}
  */
 export function scrollFrom(tag) {
@@ -11,8 +12,8 @@ export function scrollFrom(tag) {
 
     [...links].forEach((link) => {
         /**
-         * @param {Event} event - The click event object
-         * @returns {void} Initiate scrolling behavior
+         * @param {Event} event - The click event object.
+         * @returns {void} Initiate scrolling behavior.
          */
         link.addEventListener('click', (event) => {
             event.preventDefault();

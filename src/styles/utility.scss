@@ -40,7 +40,7 @@ $color-sold-dk: #5e9f44;
 }
 
 @mixin focus() {
-    &:focus, &:focus-visible, &:focus-within {
+    &:focus-visible {
         outline: rempx(2px) solid $color-black;
         outline-offset: rempx(0px);
     }
