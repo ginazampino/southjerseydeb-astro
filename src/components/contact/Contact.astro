@@ -1,7 +1,18 @@
+---
+
+// Script imports:
+import { fetchData } from '../../scripts/fetchData';
+
+// API data:
+const data = await fetchData('contact');
+const endpoint = data.attributes.endpoint;
+
+---
+
 <section id="contact">
     <div class="container">
         <h2>Contact</h2>
-        <form method="POST">
+        <form action=`${endpoint}` method="POST">
             <label for="name">
                 <div>Your name:<span>*</span></div>
                 <input name="name" type="text" required />
