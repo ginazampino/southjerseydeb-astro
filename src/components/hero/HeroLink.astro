@@ -26,7 +26,6 @@ const { text, href } = Astro.props;
         font-size: rempx(16px);
         letter-spacing: .025em;
         margin: rempx(7.5px);
-        outline: 2px solid transparent;
         text-align: center;
         transition: .2s ease-in-out;
         white-space: nowrap;
@@ -41,7 +40,13 @@ const { text, href } = Astro.props;
             background-color: $color-accent-dk;
         }
 
+        a:focus-visible div {
+            outline: rempx(2px) solid $color-black;
+            transition: .2s ease-in-out;
+        }
+
         div {
+            @include focus();
             background-color: $color-accent;
             padding: rempx(10px) rempx(12px);
             transition: .2s ease-in-out;
