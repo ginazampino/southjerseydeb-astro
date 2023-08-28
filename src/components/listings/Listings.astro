@@ -37,6 +37,11 @@ const data = await fetchData('listings');
     </div>
 </section>
 
+<script>
+    import { scrollToOffset } from '../../scripts/scrollToOffset';
+    scrollToOffset('#listings a');
+</script>
+
 <style lang="scss">
     @import '../../styles/utility.scss';
 
