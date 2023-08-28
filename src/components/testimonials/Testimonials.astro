@@ -64,16 +64,25 @@ const data = await fetchData('testimonials');
         .quote-container {
             @include flex(center, center, column);
             max-width: 100%;
+            overflow: hidden;
             padding: repmx(0px) rempx(20px);
             position: relative;
             width: rempx(600px);
 
+            @media (min-width: $screen-sm) {
+                overflow: visible;
+            }
+
             ul {
                 @include flex(center, center, column);
                 flex-grow: 1;
-                height: rempx(160px);
+                height: rempx(240px);
                 position: relative;
                 width: 100%;
+
+                @media (min-width: $screen-sm) {
+                    height: rempx(200px);
+                }
             }
         }
 
