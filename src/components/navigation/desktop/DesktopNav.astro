@@ -1,0 +1,36 @@
+---
+
+// Component imports:
+import Link from './DesktopLink.astro';
+
+---
+
+<nav id="desktopNav">
+    <ul>
+        <Link id="desktopAbout" span="About" href="#about" />
+        <Link id="desktopListings" span="Listings" href="#listings" />
+        <Link id="desktopTestimonials" span="Testimonials" href="#testimonials" />
+        <Link id="desktopContact" span="Contact" href="#contact" />
+    </ul>
+</nav>
+
+<script>
+    import { toggleMobileNav } from "../../../scripts/toggleMobileNav";
+    toggleMobileNav('.toggle-nav');
+</script>
+
+<style lang="scss">
+      @import '../../../styles/utility.scss';
+
+      nav {
+        display: none;
+        
+        @media (min-width: $screen-md) {
+            display: block;
+        }
+
+        ul {
+            @include flex(center, center, row);
+        }
+      }
+</style>

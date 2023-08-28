@@ -1,0 +1,33 @@
+---
+
+// Astro props:
+interface Props {
+    addressLine1: string,
+    addressLine2: string
+}
+
+const { addressLine1, addressLine2 } = Astro.props;
+
+---
+
+<div>
+    <span>{addressLine1}</span>
+    <span>{addressLine2}</span>
+</div>
+
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div {
+        font-size: rempx(19px);
+        font-weight: 700;
+        line-height: rempx(23px);
+        margin-bottom: rempx(7.5px);
+
+        @media (min-width: $screen-xsm) {
+            font-size: rempx(22px);
+            line-height: rempx(26px);
+        }
+    }
+</style>

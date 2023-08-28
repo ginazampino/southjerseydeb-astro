@@ -1,0 +1,99 @@
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <form method="POST">
+            <label for="name">
+                <div>Your name:<span>*</span></div>
+                <input name="name" type="text" required />
+            </label>
+            <label for="email">
+                <div>Your email address:<span>*</span></div>
+                <input name="email" type="email" required />
+            </label>
+            <label for="phone">
+                <div>Your phone number:</div>
+                <input name="phone" type="tel" />
+            </label>
+            <label for="message">
+                <div>Your message:<span>*</span></div>
+                <textarea name="message" required />
+            </label>
+            <button type="submit">
+                Send message
+            </button>
+        </form>
+    </div>
+</section>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    section#contact {
+        h2 {
+            margin-bottom: rempx(30px);
+        }
+        
+        div.container,
+        form {
+            @include flex(center, center, column);
+            max-width: 100%;
+            width: rempx(500px);
+        }
+
+        form {
+            letter-spacing: .025em;
+            
+            label, 
+            input,
+            textarea {
+                width: 100%;
+            }
+
+            input,
+            textarea {
+                background-color: #fff;
+                border: rempx(4px) solid transparent;
+                box-shadow: 0px 0px 9px 3px rgba(41,41,41,.035);
+                margin-bottom: rempx(25px);
+                margin-top: rempx(5px);
+                outline: none;
+                padding: rempx(10px);
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    border-color: rgba($color-accent, .5);
+                }
+
+                &:active, &:focus-visible {
+                    border-color: rgba($color-accent, 1);
+                }
+            }
+
+            label span {
+                color: $color-accent-xdk;
+                margin-left: rempx(2px);
+            }
+
+            textarea { // Message
+                min-height: rempx(150px);
+            }
+
+            button { // Submit
+                @include focus();
+                background-color: $color-accent;
+                margin-top: rempx(5px);
+                padding: rempx(10px) rempx(40px);
+                transition: .2s ease-in-out;
+                width: 100%;
+                
+                &:hover {
+                    background-color: $color-accent-dk;
+                }
+
+                @media (min-width: $screen-sm) {
+                    width: auto;
+                }
+            }
+        }
+    }
+</style>

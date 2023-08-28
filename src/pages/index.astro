@@ -1,0 +1,152 @@
+---
+
+// Layout imports:
+import Layout from '../layouts/Layout.astro';
+
+// Component imports:
+import Navigation from '../components/navigation/Navigation.astro';
+import Hero from '../components/hero/Hero.astro';
+import About from '../components/about/About.astro';
+import Listings from '../components/listings/Listings.astro';
+import Testimonials from '../components/testimonials/Testimonials.astro';
+import Contact from '../components/contact/Contact.astro';
+import Footer from '../components/footer/Footer.astro';
+
+// Script imports:
+import { fetchData } from '../scripts/fetchData';
+
+// API data:
+const data = await fetchData('listings');
+const listingsAmount = data.length;
+
+---
+
+<Layout>
+	<Navigation />
+	<main data-listings=`${listingsAmount}`>
+		<Hero />
+		<About />
+		<Listings />
+		<Testimonials />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>
+
+<script>
+	import { recolorSections } from '../scripts/recolorSections';
+
+	recolorSections();
+</script>
+
+<style lang="scss" is:global>
+	@import '../styles/utility.scss';
+
+	main {
+		padding-top: rempx(90px);
+
+		@media (min-width: $screen-md) {
+			padding-top: rempx(100px);
+		}
+
+		section:not(#hero) {
+			padding: rempx(40px);
+			transition: .2s ease-in-out;
+
+			@media (min-width: $screen-md) {
+				padding: rempx(55px) rempx(40px);
+			}
+		}
+
+		h2 {
+			font-size: rempx(35px);
+			font-weight: 200;
+			line-height: rempx(40px);
+			margin-bottom: rempx(20px);
+			text-align: center;
+
+			@media (min-width: $screen-md) {
+				font-size: rempx(40px);
+				line-height: rempx(50px);
+				text-align: left;
+			}
+		}
+
+		/*
+
+			Alternating background
+			for <section> elements.
+
+		*/
+
+		section#listings, section#contact {
+			background-color: $color-gray;
+			outline: rempx(4px) solid $color-white;
+        	outline-offset: rempx(-20px);
+		}
+
+		&.alt { // Applied if CMS contains no published listings.
+			section#listings {
+				display: none;
+			}
+
+			section#contact {
+				outline: none;
+			}
+
+			section#testimonials {
+				background-color: $color-gray;
+				outline: rempx(4px) solid $color-white;
+        		outline-offset: rempx(-20px);
+				
+				i {
+					color: rgba($color-black, .075);
+
+					&.fa-quote-left,
+					&.fa-quote-right {
+						top: rempx(20px);
+					}
+
+					&.fa-quote-left {
+						left: rempx(-10px);
+						
+						@media (min-width: $screen-sm) {
+							left: rempx(-20px);
+						}
+
+						@media (min-width: $screen-md) {
+							left: rempx(-80px);
+						}
+					}
+
+					&.fa-quote-right {
+						right: rempx(-10px);
+
+						@media (min-width: $screen-sm) {
+							right: rempx(-20px);
+						}
+
+						@media (min-width: $screen-md) {
+							right: rempx(-80px);
+						}
+					}
+				}
+
+				span {
+					background-color: rgba($color-black, .075);
+					color: $color-black;
+				}
+			}
+		}
+	}
+
+	section > div.container {
+		@include flex(center, center, column);
+		margin: 0 auto;
+		max-width: rempx(1100px);
+
+		@media (min-width: $screen-md) {
+			flex-direction: row;
+		}
+	}
+</style>

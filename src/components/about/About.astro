@@ -1,0 +1,112 @@
+---
+
+// Script imports:
+import { fetchData } from '../../scripts/fetchData';
+
+// API data:
+const data = await fetchData('about');
+const image =  data.attributes.image.data.attributes.url;
+const imageAlt = data.attributes.image.data.attributes.alternativeText;
+const biography = data.attributes.biography;
+const buttonLink = data.attributes.buttonLink;
+const buttonText = data.attributes.buttonText;
+
+---
+
+<section id="about">
+    <div class="container">
+        <img class="portrait" src=`https://strapi-8dip.onrender.com${image}` alt=`${imageAlt}` />
+        <div class="content">
+            <h2>Deb Leiter</h2>
+            <p>{biography}</p>
+            <div class="link-container">
+                <a href=`${buttonLink}` rel="noopener noreferrer">
+                    <div>
+                        {buttonText}
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    section#about {
+        img {
+            border-radius: 100%;
+            margin-bottom: rempx(20px);
+            max-width: 100%;
+            outline: rempx(4px) solid $color-white;
+            outline-offset: rempx(-8px);
+            transition: .2s ease-in-out;
+            width: rempx(220px);
+
+            @media (min-width: $screen-md) {
+                margin-bottom: auto;
+                margin-right: rempx(40px);
+                width: rempx(280px);
+            }
+        }
+
+        p {
+            font-size: rempx(18px);
+            font-weight: 300;
+            letter-spacing: .015em;
+            line-height: rempx(24px);
+            text-align: center;
+
+            @media (min-width: $screen-md) {
+                text-align: left;
+            }
+        }
+
+        .link-container {
+            @include flex(center, center, row);
+            margin-top: rempx(20px);
+            transition: .2s ease-in-out;
+
+            @media (min-width: $screen-lg) {
+                justify-content: flex-end;
+                margin-right: rempx(40px);
+            }
+
+            a {
+                @include focus();
+            }
+
+            a, div {
+                width: 100%;
+                transition: .2s ease-in-out;
+
+                @media (min-width: $screen-xsm) {
+                    width: rempx(220px);
+                }
+
+                @media (min-width: $screen-md) {
+                    width: 100%;
+                }
+
+                @media (min-width: $screen-lg) {
+                    width: rempx(220px);
+                }
+            }
+
+            div {
+                background-color: $color-accent;
+                padding: rempx(10px) rempx(12px);
+                text-align: center;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    background-color: $color-accent-dk;
+                }
+
+                @media (min-width: $screen-md) {
+                    padding: rempx(12px) rempx(22px);
+                }
+            }
+        }
+    }
+</style>

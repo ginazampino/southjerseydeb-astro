@@ -1,0 +1,31 @@
+---
+
+// Astro props:
+interface Props {
+    price: string,
+}
+
+const { price } = Astro.props;
+
+---
+
+<div>
+    <span>Listing price</span>
+    {price}
+</div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div {
+        @include flex(flex-start, center, column);
+
+        span {
+            color: $color-accent-xdk;
+            font-size: rempx(11px);
+            letter-spacing: .05em;
+            margin-bottom: rempx(2.5px);
+            text-transform: uppercase;
+        }
+    }
+</style>

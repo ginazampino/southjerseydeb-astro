@@ -1,0 +1,64 @@
+---
+
+// Astro props:
+interface Props {
+    id: string,
+    span: string,
+    href: string
+}
+
+const { id, span, href } = Astro.props;
+
+---
+
+<li id=`${id}`>
+    <a class="toggle-nav" href={href}>
+        <span>
+            {span}
+        </span>
+    </a>
+</li>
+
+<style lang="scss">
+    @import '../../../styles/utility.scss';
+
+    li.hidden {
+        display: none;
+    }
+
+    a {
+        display: block;
+        font-size: rempx(20px);
+        font-weight: 300;
+        letter-spacing: .045em;
+        padding: rempx(10px);
+        text-transform: uppercase;
+        transition: .2s ease-in-out;
+
+        @media (min-height: $screen-sm) {
+            padding: rempx(20px);
+        }
+
+        &:hover span:before {
+            transform: scaleX(1);
+        }
+
+        span {
+            position: relative;
+
+            &:before {
+                background-color: $color-accent;
+                bottom: rempx(-5px);
+                content: "";
+                display: block;
+                height: 4px;
+                left: 0;
+                position: absolute;
+                transform: scaleX(0);
+                transition:  0.2s ease-in-out;
+                width: 100%;
+               
+            }
+        }
+    }
+</style>

@@ -1,0 +1,64 @@
+---
+
+// Component imports:
+import Button from './MobileButton.astro';
+import Link from './MobileLink.astro';
+
+---
+
+<div class="nav-container">
+    <Button id="openNav" value="Open mobile navigation" icon="fa-bars" />
+    <nav id="mobileNav">
+        <Button id="closeNav" value="Close mobile navigation" icon="fa-xmark" />
+        <ul>
+            <Link id="mobileAbout" span="About" href="#about" />
+            <Link id="mobileListings" span="Listings" href="#listings" />
+            <Link id="mobileTestimonials" span="Testimonials" href="#testimonials" />
+            <Link id="mobileContact" span="Contact" href="#contact" />
+        </ul>
+    </nav>
+</div>
+
+<script>
+    import { toggleMobileNav } from '../../../scripts/toggleMobileNav';
+    
+    toggleMobileNav('.toggle-nav')
+</script>
+
+<style lang="scss">
+    @import '../../../styles/utility.scss';
+
+    .nav-container {
+        @media (min-width: $screen-md) {
+            display: none; // Hide mobile nav on desktop
+        }
+
+        nav {
+            @include flex(center, center, column);
+            background-color: $color-white;
+            visibility: hidden;
+            height: 100vh;
+            left: 0;
+            opacity: 0;
+            outline: rempx(4px) solid $color-accent;
+            outline-offset: rempx(-24px);
+            padding: rempx(44px);
+            pointer-events: none; // Disable <body> scrolling and other events
+            position: absolute;
+            top: 0;
+            transition: .2s ease-in-out;
+            width: 100%;
+            z-index: 999;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+                pointer-events: all; // Enable <body> scrolling and other events
+            }
+        }
+
+        ul {
+            @include flex(center, center, column);
+        }
+    }
+</style>

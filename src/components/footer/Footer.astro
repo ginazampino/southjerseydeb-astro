@@ -1,0 +1,78 @@
+---
+
+// Component imports:
+import Bio from './FooterBio.astro';
+import List from './FooterList.astro';
+import Address from './FooterAddress.astro';
+import Legal from './FooterLegal.astro';
+
+---
+
+<section id="footer">
+    <div class="container">
+        <div class="grid">
+            <Bio />
+            <List />
+            <Address />
+        </div>
+        <Legal />
+    </div>
+</section>
+
+<style lang="scss" is:global>
+    @import '../../styles/utility.scss';
+
+    section#footer {
+        background-color: $color-accent;
+        font-size: rempx(14px);
+        font-weight: 400;
+        letter-spacing: .02em;
+        line-height: rempx(20px);
+        padding: rempx(40px);
+
+        h3 {
+            font-size: rempx(16px);
+            font-weight: 600;
+            margin-bottom: rempx(14px);
+        }
+
+        a {
+            border-bottom: 1px solid rgba($color-accent-xdk, .8);
+            transition: .2s ease-in-out;
+
+            &:hover {
+                border-bottom: 1px solid transparent;
+            }
+        }
+
+        div.container {
+            @include flex(center, center, column);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-rows: auto auto auto;
+
+            @media (min-width: $screen-md) {
+                grid-template-rows: inherit;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            > div + div,
+            > div + address {
+                border-top: 1px solid rgba($color-accent-xdk, .65);
+                margin-top: rempx(20px);
+                padding-top: rempx(20px);
+
+                @media (min-width: $screen-md) {
+                    border-left: 1px solid rgba($color-accent-xdk, .65);
+                    border-top: none;
+                    margin-left: rempx(30px);
+                    margin-top: 0px;
+                    padding-left: rempx(30px);
+                    padding-top: 0px;
+                }
+            }
+        }
+    }
+</style>

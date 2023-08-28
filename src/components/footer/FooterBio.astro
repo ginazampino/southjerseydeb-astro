@@ -1,0 +1,27 @@
+<div>
+    <h3>South Jersey Deb</h3>
+    <p>
+        Looking to buy or sell a home in southern New Jersey? Deb Leiter is your local expert in South Jersey real estate.
+    </p>
+    <div class="symbols">
+        <img src="/legal-realtor.png" alt="National Association of REALTORS®" />
+        <img src="/legal-eho.png" alt="Equal Housing Opportunity" />
+    </div>
+</div>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    div.symbols {
+        margin-top: rempx(20px);
+
+        img {
+            height: rempx(70px);
+            opacity: .85;
+
+            + img {
+                margin-left: rempx(10px);
+            }
+        }
+    }
+</style>

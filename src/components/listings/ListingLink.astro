@@ -1,0 +1,17 @@
+---
+
+// Astro props:
+interface Props {
+    url: string,
+    label: string
+}
+
+const { url, label } = Astro.props;
+
+---
+
+<li>
+    <a href=`${url}` target="_blank" rel="noopener noreferrer">
+        {label}<i class="fa-sharp fa-light fa-arrow-up-right-from-square"></i>
+    </a>
+</li>

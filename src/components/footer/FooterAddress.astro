@@ -1,0 +1,53 @@
+---
+
+// Script imports:
+import { fetchData } from '../../scripts/fetchData';
+
+// API data:
+const data = await fetchData('footer');
+const email = data.attributes.email;
+const phone = data.attributes.phone;
+const facebook = data.attributes.facebook;
+
+---
+
+<address>
+    <h3>Get in touch</h3>
+    <ul>
+        <li>
+            <i class="fa-sharp fa-light fa-phone" title="Telephone"></i>
+            <a href=`tel:${phone}`>{phone}</a>
+        </li>
+        <li>
+            <i class="fa-sharp fa-light fa-envelope" title="Envelope"></i>
+            <a href=`mailto:${email}?subject=South Jersey Deb - Website message`>{email}</a>
+        </li>
+        <li>
+            <i class="fa-light fa-link-simple" title="External link"></i>
+            <a href=`${facebook}` target="_blank" rel="noopener noreferrer">Facebook</a>
+        </li>
+    </ul>
+</address>
+
+<style lang="scss">
+    @import '../../styles/utility.scss';
+
+    address {
+        font-style: normal;
+
+        a {
+            @include focus();
+        }
+        
+        li + li {
+            margin-top: rempx(4px);
+        }
+
+        i {
+            color: $color-accent-xdk;
+            margin-right: rempx(4px);
+            text-align: center;
+            width: rempx(20px);
+        }
+    }
+</style>

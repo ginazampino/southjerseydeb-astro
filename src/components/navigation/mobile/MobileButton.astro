@@ -1,0 +1,42 @@
+---
+
+// Astro props:
+interface Props {
+    id: string,
+    value: string,
+    icon: string
+}
+
+const { id, value, icon } = Astro.props;
+
+---
+
+<button type="button" id=`${id}` class="toggle-nav" value=`${value}` tab-index="0">
+    <i class=`fa-sharp fa-light ${icon}`></i>
+</button>
+
+<style lang="scss">
+    @import '../../../styles/utility.scss';
+
+    button {
+        @include focus();
+        background-color: $color-white;
+        height: rempx(50px);
+        transition: .2s ease-in-out;
+        width: rempx(50px);
+
+        &:hover {
+            background-color: $color-accent;
+        }
+
+        i {
+            font-size: rempx(25px);
+        }
+    }
+
+    #closeNav {
+        position: absolute;
+        right: rempx(20px);
+        top: rempx(20px);
+    }
+</style>

@@ -1,0 +1,47 @@
+// Functions:
+@function rempx($size) {
+    @return calc($size / 16px) * 1rem;
+}
+
+// Resolutions:
+$screen-xxsm: rempx(0px);
+$screen-xsm: rempx(300px);
+$screen-sm: rempx(576px);
+$screen-md: rempx(768px);
+$screen-lg: rempx(992px);
+$screen-xl: rempx(1200px);
+$screen-xxl: rempx(1400px);
+
+// Colors (General):
+$color-white: #fafafa;
+$color-black: #222;
+$color-gray: #f2f2f2;
+
+// Colors (Accent):
+$color-accent: #e3c6a9;
+$color-accent-dk: #d2a980;
+$color-accent-xdk:#bf8851;
+$color-accent-xxdk:#a15b14;
+
+// Colors (For Sale):
+$color-sale: $color-accent;
+$color-sale-dk: $color-accent-xdk;
+
+// Colors (Sold):
+$color-sold: #9ad782;
+$color-sold-dk: #5e9f44;
+
+// Mixins:
+@mixin flex($align-items, $justify-content, $flex-direction) {
+    align-items: $align-items;
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+}
+
+@mixin focus() {
+    &:focus-visible {
+        outline: rempx(2px) solid $color-black;
+        outline-offset: rempx(0px);
+    }
+}
