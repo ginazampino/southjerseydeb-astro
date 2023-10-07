@@ -1,5 +1,4 @@
 ---
-
 // Component imports:
 import Listing from './Listing.astro';
 
@@ -8,7 +7,6 @@ import { fetchData } from '../../scripts/fetchData';
 
 // API data:
 const data = await fetchData('listings');
-
 ---
 
 <section id="listings">
@@ -18,9 +16,12 @@ const data = await fetchData('listings');
             <ul>
                 {
                     data.map((listing) => (
-                        <Listing 
+                        <Listing
                             image={listing.attributes.image.data.attributes.url}
-                            imageAlt={listing.attributes.image.data.attributes.alternativeText}
+                            imageAlt={
+                                listing.attributes.image.data.attributes
+                                    .alternativeText
+                            }
                             addressLine1={listing.attributes.addressLine1}
                             addressLine2={listing.attributes.addressLine2}
                             listingPrice={listing.attributes.listingPrice}
@@ -28,7 +29,7 @@ const data = await fetchData('listings');
                             bathrooms={listing.attributes.bathrooms}
                             sqft={listing.attributes.sqft}
                             sold={listing.attributes.sold}
-                            link={listing.attributes.externalLink}
+                            externalLink={listing.attributes.externalLink}
                         />
                     ))
                 }
