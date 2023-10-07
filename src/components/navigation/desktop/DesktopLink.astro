@@ -1,14 +1,12 @@
 ---
-
 // Astro props:
 interface Props {
-    id: string,
-    span: string,
-    href: string
+    id: string;
+    span: string;
+    href: string;
 }
 
 const { id, span, href } = Astro.props;
-
 ---
 
 <li id=`${id}`>
@@ -29,9 +27,9 @@ const { id, span, href } = Astro.props;
     a {
         @include focus();
         font-size: rempx(13.5px);
-        letter-spacing: .045em;
+        letter-spacing: 0.045em;
         padding: rempx(10px);
-        transition: .2s ease-in-out;
+        transition: 0.2s ease-in-out;
 
         &:hover span:before {
             transform: scaleX(1);
@@ -44,10 +42,10 @@ const { id, span, href } = Astro.props;
             &:before {
                 background-color: $color-accent;
                 bottom: rempx(-5px);
-                content: "";
+                content: '';
                 display: block;
                 height: rempx(4px);
-                left: 0;
+                left: rempx(-2px);
                 position: absolute;
                 transform: scaleX(0);
                 transition: 0.2s ease-in-out;
