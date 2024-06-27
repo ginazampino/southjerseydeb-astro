@@ -24,6 +24,12 @@ Using props in Astro components:
 https://github.com/ginazampino/southjerseydeb-astro/blob/20785370018747d65d155f8061016a2de3731337/src/components/listings/Listing.astro#L55
 https://github.com/ginazampino/southjerseydeb-astro/blob/20785370018747d65d155f8061016a2de3731337/src/components/testimonials/Quote.astro#L17
 
+### Type Checking
+Using JSDoc to check types:
+https://github.com/ginazampino/southjerseydeb-astro/blob/02799679474da670667f911cabd063c3e89c866d/src/scripts/fadeQuotes.js#L4
+https://github.com/ginazampino/southjerseydeb-astro/blob/02799679474da670667f911cabd063c3e89c866d/src/scripts/fetchData.js#L6
+https://github.com/ginazampino/southjerseydeb-astro/blob/02799679474da670667f911cabd063c3e89c866d/src/scripts/toggleMobileNav.js#L21
+
 ### Contact Form
 Integrating Formspree endpoint into the contact form:
 https://github.com/ginazampino/southjerseydeb-astro/blob/20785370018747d65d155f8061016a2de3731337/src/components/contact/Contact.astro#L15
