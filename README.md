@@ -1,7 +1,7 @@
 # South Jersey Deb (Front End)
 **Using:** Astro, JSX, JSDoc, Sass
 
-🔥 **Check the website's Google Lighthouse scores!** 🔥
+🔥 **Check the website's Google Lighthouse scores:** https://southjerseydeb.com
 
 ### Project Highlights
 1. Astro (JSX) front-end framework
