@@ -9,7 +9,7 @@
 3. REST API data fetching (Strapi)
 4. Type checking (JSDoc w/ TypeScript)
 5. API integration (Formspree)
-6. Cloud hosting (Render.io)
+6. Cloud hosting (Render)
 7. CI/CD (GitHub Actions)
 
 ## Code Excerpts
